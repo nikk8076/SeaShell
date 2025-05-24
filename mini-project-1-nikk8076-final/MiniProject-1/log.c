@@ -108,10 +108,10 @@ void add_command(Queue* queue, Details* details, char* command) {
     if (queue->rear && strcmp(queue->rear->command, command) == 0)
         return;
     queue = push(command, queue);
-    write_to_file(queue, details);
+    write_to_log_file(queue, details);
 }
 
-void write_to_file(Queue* queue, Details* details) {
+void write_to_log_file(Queue* queue, Details* details) {
     if (!queue) {
         fprintf(stderr,RED "Allocate memory to queue before writing\n", RESET);
         return;

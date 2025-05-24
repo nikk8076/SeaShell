@@ -27,7 +27,7 @@ void add_command(Queue* queue,Details* details,char* command);
 
 void load_history(Queue* queue,Details* details); 
 
-void write_to_file(Queue* queue,Details* details);
+void write_to_log_file(Queue* queue,Details* details);
 
 void print_history(Queue* queue);
 

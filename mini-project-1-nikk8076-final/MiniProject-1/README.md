@@ -115,3 +115,45 @@ Executable path of process
 
 #if it is a file then its contents are displayed, if it is a folder then  the current working directory is changed to it, if it is a executable then it is executed.
 ```
+
+# Specification-9-.myshrc
+
+### Creates a file .myshrc in the folder where the code is executed and when the user calls "nano .myshrc" the file is opened in append mode.
+
+### Took aliases in the form "key = value". These were added to the myshrc file and after the user is done with giving the aliases the file is closed.
+
+### After this, in the handle_command() function before checking for other functions first i am opening the myshrc file and then checking if the value(LHS) is equal to the input given. If it is equal then the RHS is returned and executed.
+
+
+# Specification-10-IO-Redirection
+
+### Firstly i am checking for >> in the string, if it is there then i am copying the fd of the stdout of that file to the fd of the file specified in the string.Similarly i do the same for > and for < i copy the fd of stdin.
+
+### And then whatever printf and scanf are done are done in the i/o stream
+
+# Specification-11-Pipes
+
+###  Firstly i am checking if the pipe is present in the string. If it is then i am creating a 2d array to store the fds.
+###  Then i am splitting the string into two parts at the pipe and then i am using dup, dup2 to copy the fds into the 2d array then calling the pipe function.
+
+# Specification-12-Pipes+IO
+
+### Firstly i am tokenising based on | and then no matter if >,>>,< are there or not they will be executed if they are there for sure because i am calling the handle_command() function which will take care of the i/o redirection part.
+
+# Specification-13-Activities
+
+### Firstly i am copying the pids of all child processes which are there in `/proc/<pid>/tasks/<pid>/children` and then i am individually opening the status file of each pid which is `proc/<pid>/status` and then  i am reading the status file and then i am checking if the status of the file and then its name,pid and then printing it.
+
+# Specification-14-Ping
+
+### I used the kill() function to implement signals. i am tokenising the input and the 2nd and 3rd part will be pid and signal number which on converting to integer i am passing them to the kill()
+
+# Specification-15-fg & bg
+
+### For fg process, i am simply checking for the existence of the process in the same way i did for spec 13 and if it is there then i am using the kill() function to give it a `SIGCONT` signal to continue the process. And then using waitpid() to run in fg.
+
+### For bg process, first i am checking the existence in the same way i did for spec-13 and then  i am using the kill() function to give it a `SIGCONT` signal to continue the process in bg.
+
+# Specification-17-iMan
+
+### Created a function to remove html tags from the response recieved from the server. Set up the structs for network communication to resolve the host and service name into a socket address. After connecting to the server the program constructs and send a `HTTP GET` request to retrieve the man page result.And that response is passed to the ```remove_html_tags()```  function.   

@@ -124,7 +124,7 @@ void hop(const char *path, Details* details) {
         }
     }
     if (chdir(new_dir) != 0) {
-            fprintf(stderr, RED "Error:%s is not a directory\n" RESET, new_dir);
+        fprintf(stderr, RED "Error:%s is not a directory\n" RESET, new_dir);
         free(temp);
         return;
     }

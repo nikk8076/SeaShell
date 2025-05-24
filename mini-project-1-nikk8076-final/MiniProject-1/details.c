@@ -21,8 +21,3 @@ Details* getDetails(Details* details)
     gethostname(details->hostname,256);
     return details;
 }
-
-Details* updateDir(Details* details,char* path)
-{
-
-}

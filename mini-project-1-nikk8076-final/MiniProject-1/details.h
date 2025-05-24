@@ -4,7 +4,7 @@
 #define MAX_HOSTNAME_LEN 256
 #define MAX_INPUT_LEN 4096
 #define MAX_CWD_LEN 256
-
+#include <stdlib.h>
 typedef struct BgProcess{
     int index;
     pid_t pid;
@@ -19,7 +19,5 @@ typedef struct Details{
 }Details;
 
 Details* getDetails(Details* details);
-
-Details* updateDir(Details* details,char* path);
 
 #endif
