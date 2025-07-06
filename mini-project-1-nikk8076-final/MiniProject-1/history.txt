@@ -2,3 +2,9 @@ neonate -n 1
 neonate -n 0
 hop
 neonate -n 1
+sleep 4
+hi
+seek main.c
+hop -
+hop ..
+hop -
